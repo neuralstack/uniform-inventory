@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Purchase Order</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
+
+<body onload="fill()">
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="../sales/sales.html" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../production/index.html" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="active nav-item">
+                        <a href="purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                   
+                    <li class=" nav-item">
+                            <a href="../../../master.html" class="nav-link">
+                                Master Control
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="../../../master_view.html" class="nav-link">
+                                Master View
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="../../../attendance.html" class="nav-link">
+                                Attendance
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper container-fluid">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Purchase Module</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <ul class="list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="purchase.html">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="grnote.html">Good Receiving Note</a>
+                        </li>
+                        <li>
+                            <a href="purchaseinvoice.html">Purchase Invoice</a>
+                        </li>
+                        
+                        <li>
+                            <a href="vendorpay.html">Vendor Payment</a>
+                        </li>
+                    </ul>
+                </li>
+
+        </nav>
+
+
+        <div id="content" class="container-fluid">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+            </nav>
+
+            <div class="container sales-container" id="main_place">
+
+                <div class="row">
+                    <div class="col-12">
+                        <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
+                    </div>
+                </div>
+
+                <div class="packing-slip-header">
+
+                    <div class="row">
+
+                        <div class="col-6">
+                            <h3>ABBAS ALI & SONS</h3>
+                            <p><address id="address"></address></p> <!-- fetch address -->
+                            <p><address id="city">karachi,pk</address></p> <!-- fetch city -->
+                            <p>Phone: <span id="phone-no">+923452462819,+923452965650</span></p> <!-- fetch phone number -->
+                            <p>Tel: <span id="fax-no">+92-31-3-4242673</span></p> <!-- fetch fax number -->
+                            <p>Website: <span id="phone-no">www.abbasaliandsons.com</span></p> <!-- fetch website name of company -->
+
+                        </div>
+
+                        <div class="col-6">
+                            <h3>PURCHASE ORDER</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Date:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" class="form-control" id="pur-date">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    P.O #
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="pur-po">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                    <div class="col-4">
+                                       L.P.O Ref
+                                    </div>
+                                    <div class="col-8">
+                                        <select class="form-control" id="lpo_ref" >
+                                            <option>Select Lpo</option>
+                                        </select>    
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- packing address section -->
+                <div class="supply-content">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3 class="main-subject">VENDOR:</h3>
+
+                            <div class="row">
+                                    <div class="col-4">
+                                        <p>Company Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <select name="vender-info" id="pur-company-name" class="form-control" onchange="fill_vendor()">
+                                         </select>   
+                                    </div>
+                                </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="vender-info" id="pur-name" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="vender-info" id="pur-vender-address" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="vender-info" id="pur-vender-city" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="vender-info" id="pur-vender-phone" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <h3 class="main-subject">Ship To:</h3>
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="ship-info" id="pur-ship-name" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Company Name:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="ship-info" id="pur-ship-company-name" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Street Address</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="ship-info" id="pur-ship-address" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>City or ZIP:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="ship-info" id="pur-ship-city" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Phone:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" name="ship-info" id="pur-ship-phone" class="form-control">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="purchase-supply supply-info">
+                    <table class="table table-sm table-bordered ">
+                        <thead>
+                            <tr>
+                                <th class="head-text-sec">REQUISITIONER</th>
+                                <th class="head-text-sec">SHIP VIA</th>
+                                <th class="head-text-sec">F.O.B</th>
+                                <th class="head-text-sec">SHIPPING TERMS</th>
+                            </tr>
+
+                        <tbody>
+                            <tr>
+                                <td class="td-cells"><input type="text" id="pur-requs" class="form-control"></td>
+                                <td class="td-cells"><input type="text" id="pur-ship-via" class="form-control"></td>
+                                <td class="td-cells"><input type="text" id="pur-fob" class="form-control"></td>
+                                <td class="td-cells"><input type="text" id="pur-ship-term" class="form-control"></td>
+                            </tr>
+                        </tbody>
+                        </thead>
+                    </table>
+                </div>
+
+
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="d-flex">
+                            <td class="col-3">Item #</td>
+                            <td class="col-5">Description</td>
+                            <td class="col-2">Quantity</td>
+                            <td class="col-2">Unit Price</td>
+                        </tr>
+                    </thead>
+                    <tbody id="container" >
+                        <tr class="d-flex">
+                            <td class="col-2 td-cells">
+                                <select  class="form-control" id="pro1category" onclick="load_items(this)" onchange="set_item(this)"> 
+                                 </select>     
+                            </td>
+                            <td class="col-6 td-cells">
+                                <input type="text" class="form-control" id="pro1description">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1quantityavailable">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1unitprice" onkeypress="add_new(event)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <section class="color-1 text-center">
+                    <p>
+                        <button onclick="shows('operation1')" class="btn btn-primary">Generate</button>
+                    </p>
+                </section>
+
+            </div>
+
+            <div class="forms" style="max-width: none; display: none;" id="operation1">
+
+                <div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <img src="../../../assets/img/optimized-logo.png" class="rounded float-right md-logo" alt="logo">
+                        </div>
+                    </div>
+
+                    <div class="packing-slip-header">
+
+                        <div class="row">
+
+                            <div class="col-6">
+                                <h3>Company Name</h3>
+                                <p><address id="address">Street Address</address></p> <!-- fetch address -->
+                                <p><address id="city">City</address></p> <!-- fetch city -->
+                                <p>Phone: <span id="phone-no"></span></p> <!-- fetch phone number -->
+                                <p>Fax: <span id="fax-no"></span></p> <!-- fetch fax number -->
+                                <p>Website: <span id="phone-no"></span></p> <!-- fetch website name of company -->
+
+                            </div>
+
+                            <div class="col-6">
+                                <h3>PURCHASE ORDER</h3>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Date:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-date-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        P.O #
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-po-g"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- packing address section -->
+                    <div class="supply-content">
+                        <div class="row">
+                            <div class="col-6">
+                                <h3 class="main-subject">VENDOR:</h3>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-name-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Company Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-company-name-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Street Address</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-vender-address-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>City or ZIP:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-vender-city-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Phone:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-vender-phone-g"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-6">
+                                <h3 class="main-subject">Ship To:</h3>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-ship-name"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Company Name:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-ship-company-name-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Street Address</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-vender-address-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>City or ZIP:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-ship-vender-city-g"></p>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <p>Phone:</p>
+                                    </div>
+                                    <div class="col-8">
+                                        <p id="pur-ship-vender-phone-g"></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="purchase-supply supply-info">
+                        <table class="table table-sm table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th class="head-text-sec">REQUISITIONER</th>
+                                    <th class="head-text-sec">SHIP VIA</th>
+                                    <th class="head-text-sec">F.O.B</th>
+                                    <th class="head-text-sec">SHIPPING TERMS</th>
+                                </tr>
+
+                            <tbody>
+                                <tr>
+                                    <td class="td-cells" id="pur-requs-g"></td>
+                                    <td class="td-cells" id="pur-ship-via-g"></td>
+                                    <td class="td-cells" id="pur-fob-g"></td>
+                                    <td class="td-cells" id="pur-ship-term-g"></td>
+                                </tr>
+                            </tbody>
+                            </thead>
+                        </table>
+                    </div>
+
+
+                </div>
+
+                <!-- product list section -->
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="d-flex">
+                            <td class="col-1">S.no</td>
+                            <td class="col-1">Item #</td>
+                            <td class="col-4">Description</td>
+                            <!-- <td class="col-2">Qty Avail</td> -->
+                             <td scope="col-2">Qty Order</td> 
+                            <td class="col-2">Unit Price</td>
+                            <td class="col-2">Total Price</td>
+                        </tr>
+
+                    <tbody id="create-lists">
+                        <!-- <tr>
+                            <td scope="row">1</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">2</td>
+                            <td id="na"></td>
+                            <td id="ma"></td>
+                            <td id="oa"></td>
+                            <td id="pa"></td>
+                            <td id="qa"></td>
+                            <td id="ra"></td>
+                        </tr>
+
+                        <tr>
+                            <td scope="row">3</td>
+                            <td class="category"></td>
+                            <td class="description"></td>
+                            <td class="qtyavailable"></td>
+                            <td class="qtyorder"></td>
+                            <td class="unitprice"></td>
+                            <td class="totalprice"></td>
+                        </tr> -->
+                        <!-- <tr> 
+                            <td colspan="6">Total</td>
+                            <td colspan="1" id="grandtotal"></td>
+                        </tr> -->
+
+                    </tbody>
+                    </thead>
+                </table>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+  let vendors,lpos,raw_items;  
+ function fill(){
+     let select = document.getElementById('pur-company-name');
+     let select_item = document.getElementById('pro1category');
+     document.getElementById('pur-po').value = Math.floor((Math.random()*100000)+(Math.random()*100000));
+     var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let str='<option value="null">Select Company</option>';  
+      vendors = JSON.parse(this.responseText).vendors;
+      vendors.forEach(vendor => {
+         str += `<option value='`+vendor.company_name+`'>`+vendor.company_name+`</option>`
+     });
+     select.innerHTML = str;
+      console.log(vendors);
+    }
+  };
+  xhttp.open("GET", "/get_vendors", true);
+  xhttp.send(); 
+  // get raw_items
+  var xhttp2 = new XMLHttpRequest();
+  xhttp2.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       str='<option value="null">Select Raw Item</option>';  
+      raw_items = JSON.parse(this.responseText).raw_items;
+      raw_items.forEach(raw_item => {
+         str += `<option value='`+raw_item.name+`'>`+raw_item.name+`</option>`
+     });
+     select_item.innerHTML = str;
+      console.log(raw_items);
+    }
+  };
+  xhttp2.open("GET", "/get_raw_items", true);
+  xhttp2.send();
+  /// get raw_items
+  //// lpos get 
+  var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     lpos = JSON.parse(this.responseText).lpos;
+      str = '<option>Select L.P.O</option>';
+    // alert(e.innerHTML.length)
+        lpos.forEach((lpo)=>{
+        str += `<option>`+lpo.ref+`</option>`;
+    });
+    document.getElementById('lpo_ref').innerHTML = str;
+    
+     console.log(lpos)
+    }
+  };
+  xhttp3.open("GET", "/get_lpos?flag=order_phase", true);
+  xhttp3.send(); 
+
+  //// lpos get
+ }
+ function fill_vendor(){
+    let name = document.getElementById('pur-company-name').value;
+    if(name==="null"){
+        document.getElementById('pur-name').value='';
+             document.getElementById('pur-vender-address').value='';
+             document.getElementById('pur-vender-city').value='';
+             document.getElementById('pur-vender-phone').value='';
+    }
+    else{
+        vendors.forEach((vendor)=>{
+         if(name===vendor.company_name){
+             document.getElementById('pur-name').value=vendor.name;
+             document.getElementById('pur-vender-address').value=vendor.street;
+             document.getElementById('pur-vender-city').value=vendor.city;
+             document.getElementById('pur-vender-phone').value=vendor.phone;
+
+         }
+
+     })
+    }
+    
+ }
+ function load_lpos(e){
+     let str = '';
+    // alert(e.innerHTML.length)
+     if(e.innerHTML.length<10){
+        lpos.forEach((lpo)=>{
+        str += `<option>`+lpo.ref+`</option>`;
+    });
+    e.innerHTML = str;
+    }
+     console.log("str:"+str);
+
+    
+    
+  
+ }
+ function set_item(e){
+    // alert(e.value);
+     let value = e.value;
+     let detail = e.parentNode.parentNode.getElementsByTagName('td')[1].getElementsByTagName('input')[0];
+     let price = e.parentNode.parentNode.getElementsByTagName('td')[3].getElementsByTagName('input')[0];
+
+     raw_items.forEach((item)=>{
+         if(item.name===value){
+          detail.value = item.detail;
+          price.value = item.price;
+         }
+     })
+ }
+ function load_items(e){
+     let str = '<option value="null">Select raw item</option>';
+     console.log(raw_items);
+     if(e.innerHTML.length<10){
+        raw_items.forEach((item)=>{
+        str += `<option>`+item.name+`</option>`;
+    });
+    e.innerHTML = str;
+     }
+    
+    
+  
+ }
+ function update_lpo_1(){
+    let ref = document.getElementById('lpo_ref').value;
+     let po_num = document.getElementById('pur-po').value;
+     let vendor = document.getElementById('pur-company-name').value;
+     let requisitioner = document.getElementById('pur-requs').value;
+     let items_array = [];
+     let table = document.getElementById('container');
+     let tr = table.getElementsByTagName('tr');
+     let item,description,quantity,price,obj;
+     for(let i=0 ; i < tr.length ; i++)
+     {  
+         item = tr[i].getElementsByTagName('td')[0].getElementsByTagName('select')[0].value;
+         description = tr[i].getElementsByTagName('td')[1].getElementsByTagName('input')[0].value;
+         quantity = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+         price = tr[i].getElementsByTagName('td')[3].getElementsByTagName('input')[0].value;
+
+         obj = {item:item,description:description,quantity:quantity,price:price};
+         items_array.push(obj);
+
+     };
+     items_array = JSON.stringify(items_array);
+     var xhttp = new XMLHttpRequest();
+     xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     alert(this.responseText);
+     
+    }
+  };
+    xhttp.open("POST", "/update_lpo_1", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("vendor="+vendor+"&ref="+ref+"&po_num="+po_num+"&requisitioner="+requisitioner+"&purchase_array="+items_array);
+    
+ }
+
+
+
+
+</script>
+
+</html>

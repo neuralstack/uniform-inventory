@@ -1,0 +1,533 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Master View</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/salesStyle.css" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+</head>
+<body>
+        <nav class="navbar navbar-expand-lg bg-primary">
+                <div class="container">
+                    <div class="navbar-translate">
+                        <a href="index.html" class="navbar-brand home-link">Uniform Inventory</a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse justify-center">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a href="pages/src/sales/sales.html" class="nav-link">
+                                    Sales
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/src/production/index.html" class="nav-link">
+                                    Production
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/src/purchase/purchase.html" class="nav-link">
+                                    Purchase
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="master.html" class="nav-link">
+                                    Master Control
+                                </a>
+                            </li>
+                            <li class="active nav-item">
+                                <a href="master_view.html" class="nav-link">
+                                    Master View
+                                </a>
+                            </li>
+                            <li class=" nav-item">
+                                <a href="attendance.html" class="nav-link">
+                                    Attendance
+                                </a>
+                            </li>
+                        </ul>
+        
+                    </div>
+                </div>
+            </nav>
+    <div class="container-fluid">
+        <div class="container">
+
+        <div class="row">
+                <div class="col-12 text-center">
+                    <img src="assets/img/logo.png" class="rounded mx-auto sub-logo-img" alt="logo">
+                </div>
+            </div>
+        <div class="container-fluid">
+            <!-- Nav pills -->
+<ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#lpo">Active L.P.O's</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#po">Purchase Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#products">Products</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#raw">Raw Items</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#styles">Styles</a>
+        </li>
+        <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#vendors">Vendors</a>
+                          </li>
+        <li class="nav-item">
+                        <a class="nav-link" data-toggle="pill" href="#clients">Clients</a>
+                      </li>
+      </ul>
+      <hr>
+      
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane container active" id="lpo"> <!---- LPOS  -->
+            <div class="container-fluid">
+                   <h4>All ACTIVE LPOS</h4>
+                   <div class="container">
+                        <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                                <span class="input-group-text">Search</span>
+                              </div>
+                              <input type="text" class="form-control" placeholder="search query?" id='lpos_q'  onkeyup="search('lpos_q','lpos_table')">
+                            </div>
+                           <table class="table table-dark table-striped">
+                                   <thead>
+                                     <tr>
+                                       <th>lpo#</th>
+                                       <th>Ref</th>
+                                       <th>Client</th>
+                                       <th>Ordered Items</th>
+                                       <th>Flag</th>
+                                       <th>Date</th>
+
+                                     </tr>
+                                   </thead>
+                                   <tbody id='lpos_table'>
+                                    
+                                   </tbody>
+                                 </table>
+                               
+                        
+   
+                   </div>
+               </div>
+               <hr>
+   
+                <!---- LPOS  --></div>
+        <div class="tab-pane container fade" id="po">
+            <!---- LPOS  -->
+            <div class="container-fluid">
+                    <h4>All ACTIVE PURCHASING ORDERS</h4>
+                    <div class="container">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">Search</span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="search query?" id='pos_q'  onkeyup="search('pos_q','pos_table')">
+                                  </div>
+                            <table class="table table-dark table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>P.O#</th>
+                                        <th>Ref</th>
+                                        <th>Vendor</th>
+                                        <th>purchase Items</th>
+                                        <th>Flag</th>
+                                        <th>Date</th>
+ 
+                                      </tr>
+                                    </thead>
+                                    <tbody id='pos_table'>
+                                     
+                                    </tbody>
+                                  </table>
+                                
+                         
+    
+                    </div>
+                </div>
+                <hr>
+    
+                 <!---- LPOS  -->
+        </div>
+        <div class="tab-pane container fade" id="products"> <!---- items  -->
+            <div class="container-fluid">
+                <h4>All Products</h4>
+                <div class="container">
+                        <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text">Search</span>
+                                      </div>
+                                      <input type="text" class="form-control" placeholder="search query?" id='items_q'  onkeyup="search('items_q','items_table')">
+                                    </div>
+                        <table class="table table-dark table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>Name</th>
+                                    <th>description</th>
+                                    <th>Unit Price</th>
+                                  </tr>
+                                </thead>
+                                <tbody id='items_table'>
+                                 
+                                </tbody>
+                              </table>
+                            
+                     
+
+                </div>
+            </div>
+            <hr>
+
+             <!---- Items  -->
+           </div>
+        <div class="tab-pane container fade" id="raw">  <!---- Raw_items  -->
+            <div class="container-fluid">
+                    <h4>All Raw Materials</h4>
+                    <div class="container">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                            <span class="input-group-text">Search</span>
+                                          </div>
+                                          <input type="text" class="form-control" placeholder="search query?" id='raw_q'  onkeyup="search('raw_q','raw_items_table')">
+                                        </div>
+                            <table class="table table-dark table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>Name</th>
+                                        <th>description</th>
+                                        <th>Unit Price</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id='raw_items_table'>
+                                     
+                                    </tbody>
+                                  </table>
+                                
+                         
+    
+                    </div>
+                </div>
+                <hr>
+    
+                 <!---- raw_Items  -->
+            </div>
+            <div class="tab-pane container fade" id="styles"> <!--- All Styles -->
+                <div class="container-fluid">
+                       <h4>All Styles</h4>
+                       <div class="container">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                            <span class="input-group-text">Search</span>
+                                          </div>
+                                          <input type="text" class="form-control" placeholder="search query?" id='styles_q'  onkeyup="search('styles_q','styles_table')">
+                                        </div>
+                               <table class="table table-dark table-striped">
+                                       <thead>
+                                         <tr>
+                                           <th>Title</th>
+                                           <th>Fabric Code</th>
+                                           <th>Size</th>
+                                           <th>Gender</th>
+                                           <th>Details</th>
+                                           <th>Measurements</th>
+                                           <th>Embroidry</th>
+                                           <th>Logo</th>
+                                         </tr>
+                                       </thead>
+                                       <tbody id='styles_table'>
+                                        
+                                       </tbody>
+                                     </table>
+       
+                       </div>
+                   </div>
+                   <hr>
+               <!--- All Styles -->
+               </div>
+           
+        <div class="tab-pane container fade" id="vendors"> <!--- All Vendor -->
+            <div class="container-fluid">
+                   <h4>All Vendor</h4>
+                   <div class="container">
+                        <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                        <span class="input-group-text">Search</span>
+                                      </div>
+                                      <input type="text" class="form-control" placeholder="search query?" id='vendors_q'  onkeyup="search('vendors_q','vandors_table')">
+                                    </div>
+                           <table class="table table-dark table-striped">
+                                   <thead>
+                                     <tr>
+                                       <th>Name</th>
+                                       <th>Company Name</th>
+                                       <th>Street Address</th>
+                                       <th>City</th>
+                                       <th>Phone</th>
+                                     </tr>
+                                   </thead>
+                                   <tbody id='vendors_table'>
+                                    
+                                   </tbody>
+                                 </table>
+   
+                   </div>
+               </div>
+               <hr>
+           <!--- All Vendor -->
+           </div>
+        <div class="tab-pane container fade" id="clients"> <!--- All Client -->
+            <div class="container-fluid">
+                    <h4>All Client</h4>
+                    <div class="container">
+                            <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                            <span class="input-group-text">Search</span>
+                                          </div>
+                                          <input type="text" class="form-control" placeholder="search query?" id='clients_q'  onkeyup="search('clients_q','clients_table')">
+                                        </div>
+                            <table class="table table-dark table-striped">
+                                    <thead>
+                                      <tr>
+                                        <th>Name</th>
+                                        <th>Company Name</th>
+                                        <th>Street Address</th>
+                                        <th>City</th>
+                                        <th>Phone</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id='clients_table'>
+                                     
+                                    </tbody>
+                                  </table>
+    
+
+                  
+    
+                    </div>
+                </div>
+                <hr>
+            <!--- All Client -->
+
+</div>
+
+      </div>
+            
+           
+        </div>    
+            </div>
+
+            </div>
+
+     
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA6MZB_05f3iHzNWU9TLBnh4ImCV8l9QKU",
+    authDomain: "productionmodule.firebaseapp.com",
+    databaseURL: "https://productionmodule.firebaseio.com",
+    projectId: "productionmodule",
+    storageBucket: "",
+    messagingSenderId: "682109476740"
+  };
+  firebase.initializeApp(config);
+</script>
+        
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+
+<script>
+      function load_lpos(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let lpos = JSON.parse(this.responseText).lpos;
+      let table=document.getElementById('lpos_table');
+      let str='';
+      lpos.forEach((lpo)=>{
+       let str1=`<table  style='font-size:12px;border:1px solid beige'><tbody>`;
+       let items=JSON.parse(lpo.items_array);
+       items.forEach((item)=>{
+       str1 += `<tr><td>`+item.item+`</td><td>`+item.quantity+`</td><td>`+item.price+`(pkr)</td></tr>`;
+       });
+       str1 += `</tbody></table>`;
+       str += '<tr><td>'+lpo.lpo_number+'</td><td>'+lpo.ref+'</td><td>'+lpo.client+'</td><td>'+str1+'</td><td>'+lpo.flag+'</td><td>'+lpo.date+'</td></tr>'
+      });
+      table.innerHTML = str;
+    }
+  };
+  xhttp.open("GET", "/get_lpos", true);
+  xhttp.send(); 
+   }
+   function load_pos(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let pos = JSON.parse(this.responseText).pos;
+      let table=document.getElementById('pos_table');
+      let str='';
+      pos.forEach((po)=>{
+        let str1=`<table  style='font-size:12px;border:1px solid beige'><tbody>`;
+       let items=JSON.parse(po.purchase_array);
+       items.forEach((item)=>{
+       str1 += `<tr><td>`+item.item+`</td><td>`+item.quantity+`</td><td>`+item.price+`(pkr)</td></tr>`;
+       });
+       str1 += `</tbody></table>`;
+       str += '<tr><td>'+po.po_num+'</td><td>'+po.ref+'</td><td>'+po.vendor+'</td><td>'+str1+'</td><td>'+po.flag+'</td><td>'+po.date+'</td></tr>'
+      });
+      table.innerHTML = str;
+    }
+  };
+  xhttp.open("GET", "/get_pos", true);
+  xhttp.send(); 
+   }
+   function load_items(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let items = JSON.parse(this.responseText).items;
+      let table=document.getElementById('items_table');
+      let str='';
+      items.forEach((item)=>{
+       str += '<tr><td>'+item.name+'</td><td>'+item.detail+'</td><td>'+item.price+'</td></tr>'
+      });
+      table.innerHTML = str;
+     console.log(items);
+    }
+  };
+  xhttp.open("GET", "/get_items", true);
+  xhttp.send(); 
+   }
+   function load_raw_items(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let raw_items = JSON.parse(this.responseText).raw_items;
+      let table=document.getElementById('raw_items_table');
+      let str='';
+      raw_items.forEach((raw_item)=>{
+       str += '<tr><td>'+raw_item.name+'</td><td>'+raw_item.detail+'</td><td>'+raw_item.price+'</td></tr>'
+      });
+      table.innerHTML = str;
+     console.log(raw_items);
+    }
+  };
+  xhttp.open("GET", "/get_raw_items", true);
+  xhttp.send(); 
+   }
+ 
+   function load_styles(){
+   
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+        let styles = JSON.parse(this.responseText).styles;
+        console.log("styles",styles);
+
+      let table=document.getElementById('styles_table');
+      let str='';
+      styles.forEach((style)=>{
+       str += '<tr><td>'+style.title+'</td><td>'+style.fabric_code+'</td><td>'+style.size+'</td><td>'+
+            style.gender+'</td><td>'+style.details+'</td><td>'+style.measurements+'</td><td>'+style.embroidry+'</td><td>'+style.logo+'</td></tr>'
+      });
+      table.innerHTML = str;
+    }
+  };
+  xhttp.open("GET", "/get_styles", true);
+  xhttp.send(); 
+   }   
+   function load_clients(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      
+        let clients = JSON.parse(this.responseText).clients;
+      let table=document.getElementById('clients_table');
+      let str='';
+      clients.forEach((client)=>{
+       str += '<tr><td>'+client.name+'</td><td>'+client.company_name+'</td><td>'+client.street+'</td><td>'+client.city+'</td><td>'+client.phone+'</td></tr>'
+      });
+      table.innerHTML = str;
+     console.log(clients);
+    }
+  };
+  xhttp.open("GET", "/get_clients", true);
+  xhttp.send(); 
+   }
+   function load_vendors(){
+    var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        let vendors = JSON.parse(this.responseText).vendors;
+      let table=document.getElementById('vendors_table');
+      let str='';
+      vendors.forEach((vendor)=>{
+       str += '<tr><td>'+vendor.name+'</td><td>'+vendor.company_name+'</td><td>'+vendor.street+'</td><td>'+vendor.city+'</td><td>'+vendor.phone+'</td></tr>'
+      });
+      table.innerHTML = str;
+     console.log(vendors);
+
+    }
+  };
+  xhttp.open("GET", "/get_vendors", true);
+  xhttp.send(); 
+   }
+   load_styles();                                     
+   load_pos();
+   load_lpos();
+   load_items();
+   load_raw_items();
+   load_clients();
+   load_vendors();
+   function search(input,table){
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById(input);
+    filter = input.value.toUpperCase();
+    table = document.getElementById(table);
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td");
+        for (j = 0; j < td.length; j++) {
+            if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                found = true;
+            }
+        }
+        if (found) {
+            tr[i].style.display = "";
+            found = false;
+        } else {
+            tr[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</html>

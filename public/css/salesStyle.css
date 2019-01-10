@@ -1,0 +1,442 @@
+/* Sales */
+
+.sales-container{
+    border: 1px solid rgb(65, 63, 63);
+    padding: 4em !important;
+    /* background-color: rgb(244, 246, 247); */
+}
+
+.Sales-left-heading{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+}
+
+/* sales payment */
+.the-fieldset {
+    border: 1px solid #615f5f;
+    padding: 10px;
+}
+
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0;
+    width: auto;
+    padding: 0 10px;
+    border: 1px solid #7e7777;
+}
+
+/* table */
+
+.td-cells{
+	/* height: 34px !important; */
+	padding: 0px !important;
+	overflow-wrap: break-word;
+}
+
+.border-none{
+    border: none !important;
+}
+
+.product-detail-list{
+    margin: 1em 0 1em 1em;
+}
+/* 
+ .invoice-container{    
+    border: 1px solid rgb(65, 63, 63);
+     padding: 2em !important; 
+    background-color: rgb(244, 246, 247);
+    
+}  */
+
+/* packing page */
+
+.packing-address{
+	margin: 2em 0 3em 0;
+}
+
+.packing-address input{
+	width: 15em;
+	height: 2em;
+	border-radius: 2px;
+}
+
+.packing-supply{
+	margin-bottom: 3em;
+}
+
+.packing-lists th{
+	font-size: 15px;
+}
+/* sales end */
+
+
+/* Purchase section*/
+
+.purchase-container{
+    border: 1px solid rgb(65, 63, 63);
+    padding: 5em !important;
+}
+
+/* goods receiving note */
+
+.gr-container{
+    padding: 2em !important;
+}
+
+.gr-info{
+    border: 1px solid black;
+    padding: 2em;
+    margin: 1em 0 2em 0;
+}
+
+.gr-type{
+    border: 1px solid black;
+    padding: 2px;
+	text-align: center;
+	margin-top: 1em;
+}
+
+.gr-col-1{
+	width: 20px;
+}
+
+.gr-col-2{
+	width: 20px;
+}
+
+/* payment receipt */
+
+.payscript-container{
+    padding: 2em !important;
+}
+
+.pay-type{
+    margin: 2em 0 2em 0;
+}
+td{
+	overflow-wrap: break-word;
+}
+
+/* .pay-items-container{
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    position: relative;
+    margin: 0 0 2em -2em;
+} */
+
+.pay-cells-head{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid rgb(53, 50, 50);
+    padding: 8px;
+    background-color: #d6cece;
+    text-align: center;
+}
+
+.pay-cells{
+    border: 1px solid rgb(53, 50, 50);
+    padding: 8px;
+}
+
+.pay-cells-large{
+    border: 1px solid rgb(107, 104, 104);
+    padding: 8px;
+    height: 3.5em;
+}
+
+/* Delivery note */
+
+.delivery-items{
+	margin-top: 2em;
+}
+
+.delivery-address{
+	margin-top: 3em;
+}
+
+.delivery-cell-head{
+    display: block;
+    padding: 11px;
+    border: 1px solid black;
+}
+
+.delivery-cell{
+
+    padding: 3px;
+    border: 1px solid black;
+}
+.delivery-cell h5 {
+    overflow: hidden;
+}
+
+.note-status{
+	margin-top: 2em;
+}
+
+.subject-data{
+	padding: 1em;
+}
+
+/* production module */
+
+.production-Header-main{
+	border-bottom: 1px solid black;
+	width: 50%;
+	padding-bottom: 1em;
+	margin: 0 auto;
+	margin-bottom: 2em;
+}
+
+.production-schema{
+	margin-top: 10em;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* arrow box add company */
+.arrow_box_add {
+	position: relative;
+	background: #88b7d5;
+	border: 4px solid #c2e1f5;
+	margin: 15px;
+}
+
+.arrow_box_add:hover {
+	position: relative;
+	background: #aecadb;
+	border: 4px solid #97c4e2;
+	margin: 15px;
+	transform: scale(1.1);
+	transition-duration: 2s;
+}
+
+.arrow_box_add:after, .arrow_box_add:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box_add:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-left-color: #88b7d5;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box_add:before {
+	border-color: rgba(194, 225, 245, 0);
+	border-left-color: #c2e1f5;
+	border-width: 36px;
+	margin-top: -36px;
+}
+
+.arrow_box_add h2{
+    width: 3.2em;
+	height: 4em;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+	font-size: 32px;
+}
+
+/* cutting */
+
+.arrow_box_cut {
+	position: relative;
+	background: #d531a9;
+	border: 5px solid #e9e6f5;
+	margin: 15px;
+}
+
+.arrow_box_cut:hover {
+	position: relative;
+	background: #c07cae;
+	border: 5px solid #c5bbec;
+	margin: 15px;
+	transform: scale(1.1);
+	transition-duration: 2s;
+}
+.arrow_box_cut:after, .arrow_box_cut:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box_cut:after {
+	border-color: rgba(213, 49, 169, 0);
+	border-left-color: #d531a9;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box_cut:before {
+	border-color: rgba(233, 230, 245, 0);
+	border-left-color: #e9e6f5;
+	border-width: 37px;
+	margin-top: -37px;
+}
+
+.arrow_box_cut h2{
+    width: 3.2em;
+	height: 4em;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 42px;
+}
+
+/* stitching */
+
+.arrow_box_stitch {
+	position: relative;
+	background: #43695b;
+	border: 5px solid #a4a887;
+	margin: 15px;
+}
+
+.arrow_box_stitch:hover {
+	position: relative;
+	background: #5a6e67;
+	border: 5px solid #aab178;
+	margin: 15px;
+	transform: scale(1.1);
+	transition-duration: 2s;
+}
+.arrow_box_stitch:after, .arrow_box_stitch:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box_stitch:after {
+	border-color: rgba(67, 105, 91, 0);
+	border-left-color: #43695b;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box_stitch:before {
+	border-color: rgba(164, 168, 135, 0);
+	border-left-color: #a4a887;
+	border-width: 37px;
+	margin-top: -37px;
+}
+
+.arrow_box_stitch h2{
+    width: 3.2em;
+	height: 4em;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 42px;
+}
+
+/* delivery */
+
+.arrow_box_deliver {
+	position: relative;
+	background: #69404f;
+	border: 5px solid #a4a887;
+	margin: 15px;
+}
+.arrow_box_deliver:hover{
+	position: relative;
+	background: #706066;
+	border: 5px solid #b0b873;
+	transform: scale(1.1);
+	transition-duration: 2s;
+}
+.arrow_box_deliver:after, .arrow_box_deliver:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box_deliver:after {
+	border-color: rgba(105, 64, 79, 0);
+	border-left-color: #69404f;
+	border-width: 30px;
+	margin-top: -30px;
+}
+.arrow_box_deliver:before {
+	border-color: rgba(164, 168, 135, 0);
+	border-left-color: #a4a887;
+	border-width: 37px;
+	margin-top: -37px;
+}
+
+.arrow_box_deliver h2{
+    width: 3.2em;
+	height: 4em;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 42px;
+}
+
+.arrow_box_add a, 
+.arrow_box_cut a, 
+.arrow_box_stitch a, 
+.arrow_box_deliver a {
+	text-decoration: none;
+	color: black;
+}
+/* production module end */
+
+/* cutting module */
+
+.cutting-table{
+	margin: 0 auto;
+	margin-top: 3em;
+}
+
+/* cutting module end */
+
+/* delivery module */
+
+.delivery-table{
+	margin: 0 auto;
+	margin-top: 3em;
+}
+
+/* delivery module end */
+
+/* stitching module */
+
+.stitching-table{
+	margin: 0 auto;
+	margin-top: 3em;
+}
+
+/* stitching module end */
+
+/* Attendence section */
+
+.attendance-input-section{
+	width: 70%;
+	margin: 0 auto;
+	margin-bottom: 3em !important;
+}
+
+/* sttendence section end */

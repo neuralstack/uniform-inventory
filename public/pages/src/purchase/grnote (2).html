@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="../sales/sales.html" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../production/productionLine.html" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../attendance.html" class="nav-link">
+                            Documents
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-md-2 sidebar">
+                <h3 class="Sales-left-heading">Purchase Module</h3>
+                <p><a href="purchase.html">Purchase Order</a></p>
+                <p><a href="grnote.html">Good Receiving Note</a></p>
+                <p><a href="purchaseinvoice.html">Purchase Invoice</a></p>
+                <p><a href="vendoraccount.html">Vendor Receipt Account</a></p>
+                <p><a href="vendorpay.html">Vendor Payment</a></p>
+
+            </div>
+
+            <div class="col-md-10">
+
+                <div class="container gr-container">
+
+                    <h1 class="text-center doc-head-text">Goods Receiving Note</h1>
+
+                    <div class="">
+
+                        <div class="gr-info">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <div>
+                                        <p>From: Supplier <span id="gr-supplier"></span></p>
+                                        <p>To: Delivery <span id="gr-delivery"></span></p>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <p>Order No: <span id="order-num"></span></p>
+                                    <!--fetch order number from purchase order-->
+                                    <p>Delivery Note No: <span id="delivey-num"></span></p>
+                                    <!--fetch delievry number-->
+                                    <p>Invoice No: <span id="invoice-num"></span></p>
+                                    <!--fetch purchase invoice number-->
+                                    <p>Requisition No: <span id="requisition-num"></span></p>
+                                    <p>Requisition By: <span id="requisition-by"></span></p>
+                                    <p>Date: <span id="date"></span></p>
+                                    <!--good receiving note generate date-->
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Item No</th>
+                                    <th>Item Code</th>
+                                    <!--for each item their is a constant code of the specified item-->
+                                    <th>Item Specification</th>
+                                    <th>Unit</th>
+                                    <th>Qty <br> Ordered</th>
+                                    <th>Qty <br> Received</th>
+                                    <th>Unit Cost</th>
+                                    <th>Total Value</th>
+                                    <th>Balance</th>
+
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>Stores Officer: <span id="store-incharge-name"></span></p>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <p>Name: <span id="responsible-person-name"></span></p>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <p>Signature: <span id="signature"></span></p>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <p>Designation: <span id="person-designation"></span></p>
+                                    </div>
+
+                                    <div class="col-2">
+                                        <p>Date: <span id="issue date"></span></p>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p>Remarks:</p>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <span>......................................................</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="gr-type">
+                                <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
+                                    (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+</html>

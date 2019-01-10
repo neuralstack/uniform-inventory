@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Good Receiving Note</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+</head>
+
+<body onload="fill()">
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="../sales/sales.html" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../production/productionLine.html" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../../attendance.html" class="nav-link">
+                            Attendence
+                        </a>
+                    </li>
+                    <li class=" nav-item">
+                            <a href="../../../master.html" class="nav-link">
+                                Master Control
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="../../../master_view.html" class="nav-link">
+                                Master View
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="../../../attendance.html" class="nav-link">
+                                Attendance
+                            </a>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="wrapper container-fluid">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Purchase Module</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <ul class="list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="purchase.html">Purchase Order</a>
+                        </li>
+                        <li>
+                            <a href="grnote.html">Good Receiving Note</a>
+                        </li>
+                        <li>
+                            <a href="purchaseinvoice.html">Purchase Invoice</a>
+                        </li>
+                        <li>
+                            <a href="vendorpay.html">Vendor Payment</a>
+                        </li>
+                    </ul>
+                </li>
+
+        </nav>
+
+        <div id="content" class="container-fluid">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+                        <span>Menu</span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                </div>
+            </nav>
+        <!-- Page Content  -->
+       <div class="container sales-container" id="main_place">
+
+                <div class="text-center doc-head-text">
+                    <h2>Goods Receiving Note</h2>
+                    <div class="form-inline text-center">
+                        <label class="form-control-label">L.P.O Ref/P.O#:</label>
+                        <select class="form-control" id="lpo_ref" onchange="set_items(this)"></select>
+                    </div>
+                </div>
+
+                <div class="gr-info">
+
+                    <div class="row">
+                        <div class="col-6">
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>From: </p>
+                                </div>
+
+                                <div class="col-8">
+                                    <select name="" id="gr-from" class="form-control">
+                                        <option value="supplier">Supplier</option>
+                                        <option value="delivery">Delivery</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>To: </p>
+                                </div>
+
+                                <div class="col-8">
+                                    <select name="" id="gr-to" class="form-control">
+                                        <option value="delivery">Delivery</option>
+                                        <option value="supplier">Supplier</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Order No:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-order-num" class="form-control">
+                                </div>
+
+                                <!--fetch order number from purchase order-->
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Delivery Note No:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-delivey-num" class="form-control">
+                                </div>
+
+                                <!--fetch delievry number-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Invoice No:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-invoice-num" class="form-control">
+                                </div>
+
+                                <!--fetch purchase invoice number-->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Requisition No:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-requisition-num" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Requisition By:</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" id="gr-requisition-by" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <p>Date :</p>
+                                </div>
+                                <div class="col-8">
+                                    <input type="date" id="gr-date" class="form-control">
+                                </div>
+
+                                <!--good receiving note generate date-->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <table class="table table-bordered">
+                    <thead>
+                        <tr class="d-flex">
+                            <td class="col-2">Product Category</td>
+                            <td class="col-4">Description</td>
+                            <td class="col-2">Recieved Qty</td>
+                            <td class="col-2">Order Qty</td>
+                            <td class="col-2">Unit Price</td>
+                        </tr>
+                    </thead>
+                    <tbody id="container">
+                        <tr class="d-flex">
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1category">
+                            </td>
+                            <td class="col-4 td-cells">
+                                <input type="text" class="form-control" id="pro1description">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1quantityavailable">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1quantityorder">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro1unitprice" onkeypress="sales_add_new(event)">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="">
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Store Officer</p>
+                        </div>
+                        <div class="col-4">
+                            <input type="text" class="form-control" id="store-incharge-name">
+                        </div>
+
+                        <div class="col-2">
+                                <p>Name:</p>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="responsible-person-name">
+                            </div>
+                    </div>
+
+                    <div class="row">
+                            <div class="col-2">
+                                <p>Designation:</p>
+                            </div>
+                            <div class="col-4">
+                                <input type="text" class="form-control" id="person-designation">
+                            </div>
+    
+                            <div class="col-2">
+                                    <p>Date:</p>
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control" id="issue-date">
+                                </div>
+                        </div>
+
+                </div>
+
+                <!-- <div class="gr-type">
+                    <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
+                        (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
+                </div> -->
+
+                <section class="color-1 text-center">
+                    <p>
+                        <button onclick="grNote('operation1')" class="btn btn-primary ">Generate</button>
+                    </p>
+                </section>
+
+
+            </div>
+
+            <div class="forms" style="max-width: none; display: none;" id="operation1">
+              
+                <div class="gr-info">
+
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <p>From: Supplier <span id="gr-from-g"></span></p>
+                                <p>To: Delivery <span id="gr-to-g"></span></p>
+                            </div>
+
+                        </div>
+
+                        <div class="col-6">
+                            <p>Order No: <span id="gr-order-num-g"></span></p>
+                            <!--fetch order number from purchase order-->
+                            <p>Delivery Note No: <span id="gr-delivey-num-g"></span></p>
+                            <!--fetch delievry number-->
+                            <p>Invoice No: <span id="gr-invoice-num-g"></span></p>
+                            <!--fetch purchase invoice number-->
+                            <p>Requisition No: <span id="gr-requisition-num-g"></span></p>
+                            <p>Requisition By: <span id="gr-requisition-by-g"></span></p>
+                            <p>Date: <span id="gr-date-g"></span></p>
+                            <!--good receiving note generate date-->
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- product list section -->
+                <table class="table table-bordered">
+                        <thead>
+                            <tr class="d-flex">
+                                <td class="col-1">S.no</td>
+                                <td class="col-2">Product Category</td>
+                                <td class="col-4">Description</td>
+                                <td class="col-1">Recieved Qty</td>
+                                <td class="col-1">Order Qty</td>
+                                <td class="col-1">Unit Price</td>
+                                <td class="col-2">Total Price</td>
+                            </tr>
+    
+                        <tbody id="create-lists">
+    
+                        </tbody>
+                        </thead>
+                    </table>
+               
+                <div class="">
+                    <div class="row">
+                        <div class="col-3">
+                            <p>Stores Officer:</p>
+                        </div>
+                        <div class="col-3">
+                            <p id="store-incharge-name-g"></p>
+                        </div>
+                        <div class="col-3">
+                                <p>Name:</p>
+                            </div>
+                            <div class="col-3">
+                                <p id="responsible-person-name-g"></p>
+                            </div>
+                    </div>
+
+                        <div class="row">
+                                <div class="col-3">
+                                    <p>Designation:</p>
+                                </div>
+                                <div class="col-3">
+                                    <p id="person-designation-g"></p>
+                                </div>
+
+                                <div class="col-3">
+                                        <p>Date:</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <p id="issue-date-g"></p>
+                                    </div>
+                            </div>
+<div class="row">
+        <div class="col-2">
+                <p>Signature:</p>
+            </div>
+            <div class="col-3">
+                <p>__________________</p>
+            </div>
+</div>
+                    
+
+                    <div class="row">
+                        <div class="col-2">
+                            <p>Remarks:</p>
+                        </div>
+
+                        <div class="col-8">
+                            <span>_______________________________________________________________________________________________</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="gr-type">
+                    <p>Distribution:Original (White Copy) - Account, Duplicate (Green) - User, Triplicate
+                        (Pink) - Purchase, Quadruplicate (Blue) - Store</p>
+                </div> -->
+
+            </div>
+            
+    
+            </div>
+    
+        
+    </div>
+    <!-- <p id="n"></p> -->
+    <!-- <button onclick="waqaskhan();">Submit</button>
+<input type="button" id="create_pdf" value="Generate PDF">  -->
+   
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<script>
+    let lpos,pos;
+  function fill(){
+       //// lpos get 
+  var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     pos = JSON.parse(this.responseText).pos;
+      str = '<option value="null">Select L.P.O</option>';
+    // alert(e.innerHTML.length)
+        pos.forEach((po)=>{
+        str += `<option value="`+po.po_num+`">`+po.ref+"/"+po.po_num+`</option>`;
+    });
+    document.getElementById('lpo_ref').innerHTML = str;
+    
+     console.log("pos:",pos)
+    }
+  };
+  xhttp3.open("GET", "/get_pos", true);
+  xhttp3.send(); 
+
+  //// lpos get
+ 
+  }
+  function set_items(e){
+     // console.log("clicked");
+  let value = e.value;
+  let str =``;
+  if(value !== null){
+      pos.forEach((po)=>{
+          if(po.po_num===value){
+              document.getElementById('gr-order-num').value = po.po_num;
+              document.getElementById('gr-requisition-by').value = po.requisitioner;
+              document.getElementById('gr-order-num').value = po.po_num;
+              console.log(po.requisitioner);
+              let purchase_item = JSON.parse(po.purchase_array);
+              document.getElementById('container').innerHTML='';
+              purchase_item.forEach((item,index)=>{
+                  console.log(item);
+                  str +=`<tr class="d-flex">
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`category" value="`+item.item+`">
+                            </td>
+                            <td class="col-4 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`description" value="`+item.description+`">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`quantityavailable">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" id="pro`+(index+1)+`quantityorder" value="`+item.quantity+`">
+                            </td>
+                            <td class="col-2 td-cells">
+                                <input type="text" class="form-control" value="`+item.price+`" id="pro`+(index+1)+`unitprice" onkeypress="sales_add_new(event)">
+                            </td>
+                        </tr>`;
+              });
+              document.getElementById('container').innerHTML=str;
+             
+          }
+
+          
+      })
+  }
+  }
+ function update_lpo_2(){
+let ref = document.getElementById('lpo_ref').value;     
+let table = document.getElementById('container');
+let tr = table.getElementsByTagName('tr');
+let qtys=[];
+for(let i=0; i < tr.length ; i++){
+ qtys[i]  = tr[i].getElementsByTagName('td')[2].getElementsByTagName('input')[0].value;
+}
+qtys = JSON.stringify(qtys);
+var xhttp3 = new XMLHttpRequest();
+  xhttp3.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    alert(this.responseText);
+    }
+  };
+  xhttp3.open("POST", "/update_lpo_2", true);
+    xhttp3.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp3.send("ref="+ref+"&qtys="+qtys);
+    
+
+
+
+}   
+
+
+</script>
+
+</html>

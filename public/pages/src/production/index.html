@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Production Line</title>
+
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link rel="stylesheet" href="../../../css/salesStyle.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <meta name="description" content="Creative Button Styles  - Modern and subtle styles &amp; effects for buttons" />
+    <meta name="keywords" content="button styles, css3, modern, flat button, subtle, effects, hover, web design" />
+    <meta name="author" content="Codrops" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <script src='https://cdn.jsdelivr.net/npm/jsbarcode@3.8.0/dist/JsBarcode.all.min.js' ></script>
+    <!-- Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+            <div class="navbar-translate">
+                <a href="../../../index.html" class="navbar-brand">Uniform Inventory</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse justify-center">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a href="../sales/sales.html" class="nav-link">
+                            Sales
+                        </a>
+                    </li>
+                    <li class="active nav-item">
+                        <a href="../production/main.html" class="nav-link">
+                            Production
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../purchase/purchase.html" class="nav-link">
+                            Purchase
+                        </a>
+                    </li>
+                    <li class=" nav-item">
+                            <a href="master.html" class="nav-link">
+                                Master Control
+                            </a>
+                        </li>
+                        <li class=" nav-item">
+                            <a href="master_view.html" class="nav-link">
+                                Master View
+                            </a>
+                        </li>
+                    <li class="nav-item">
+                        <a href="../../../attendance.html" class="nav-link">
+                            Attendance
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="container ">
+                <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a class="nav-link active" data-toggle="tab" href="#jsc">JOB SLIP CREATION</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#operation">OPERATIONS</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" data-toggle="tab" href="#printing">JOB SLIPS PRINTING</a>
+                        </li>
+                        
+                      </ul>
+                      
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane container active" id="jsc"> 
+                            <div class="row" >
+                                <h3>JOB SLIP CREATION</h3>
+                                <div class='container'>
+                                    <form method='POST' action='/create_job_slip'>
+                                    <div class='col-md-6'>
+                                            <div class='row'>
+                                                    <div class='col-md-4'><label class='form-control-label' style='margin-right:16px'>Starting Number#</label>
+                        
+                                                    </div>
+                                                    <div class='col-md-6'> <input class='form-control' id='starting_number' name='starting_number' required>
+                                                    </div>
+                                                </div>
+                                        <div class='row'>
+                                            <div class='col-md-4'><label class='form-control-label' style='margin-right:16px'>L.P.O
+                                                    Ref:</label>
+                
+                                            </div>
+                                            <div class='col-md-6'> <select class='form-control' required id='lpo_select' onChange='load_products()' name='lpo_ref'>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class='row'>
+                                                <div class='col-md-4'> <label class='form-control-label' style='margin-right:16px'>Company Name</label>
+                                                </div>
+                                                <div class='col-md-6'> <input required class='form-control' id='company_name'  name='company_name'/>
+                                                </div>
+                                             </div>   
+                  
+                                        <div class='row'>
+                                            <div class='col-md-4'> <label class='form-control-label' style='margin-right:16px'>Product:</label>
+                                            </div>
+                                            <div class='col-md-6'> <select required class='form-control' id='product_select' onChange='set_product()' name='product'>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class='row'>
+                                            <div class='col-md-4'> <label class='form-control-label' style='margin-right:16px' >Quantity#:</label>
+                                            </div>
+                                            <div class='col-md-6'> <input required class='form-control' id='product_quantity'  name='quantity'>
+                                            </div>
+                                         </div>  
+                                         <div class='row'>
+                                                <div class='col-md-4'> <label class='form-control-label' style='margin-right:16px'>Style:</label>
+                                                </div>
+                                                <div class='col-md-6'> <select required class='form-control' id='style_select' name='style' >
+                                                    </select>
+                                                </div>
+                                            </div> 
+                                           <div class='row'>
+                                            <div class='col-md-4' > <Button class='btn btn-primary'>Generate Job Slip</Button>
+                                            </div>
+                                            
+                                        </div>   
+                                        </div>
+                                    </form>
+                                    </div>
+                                
+                
+                                </div></div>
+                        <div class="tab-pane container fade" id="operation"><div class="row" >
+                              <!----         left card section    -->
+<div class='col-md-6'>
+        <div class="card">
+            <div class="card-header"><h5>Information About Job Slip</h5></div>
+            <div class='card-body'>
+                <div class='container-fluid'>
+                        <div class='row'>
+                                           
+                                <div class="col-md-4">
+                                        <label class='form-control-label'>JOB SLIP#</label>
+                
+                                </div>
+                                <div class="col-md-6">
+                                    <select id='js_select' name='number' onChange='set_js()' class='form-control' required></select>
+                                </div>
+                            </div>
+                            <hr/>
+                    <table class='table table-dark table-striped'>
+                        <tr><td>L.P.O ref</td><th id='ref'></th></tr>
+                        <tr><td>Product</td><th id='product'></th></tr>
+                        <tr><td>Style</td><th id='style'></th></tr>
+                        <tr><td>Total Quantity</td><th id='quantity'></th></tr>
+                        <tr><td>Starting Barcode Number</td><th id='starting_number_1'></th></tr>
+                        <tr><td>Quantity Cut</td><th id='cutting_number'></th></tr>
+                        <tr><td>Quantity Stitched</td><th id='stitching_number'></th></tr>
+                        <tr><td>Quantity Packed</td><th id='packing_number'></th></tr>
+                        <tr><td>Quantity Delivered</td><th id='delivered_number'></th></tr>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+        </div> 
+<!----         left card section    -->  
+                             <div class='col-md-6'>
+                                    <br>
+                                    <ul class="nav nav-tabs">
+                                            <li class="nav-item">
+                                              <a class="nav-link active" data-toggle="tab" href="#cut">Cutting</a>
+                                            </li>
+                                            <li class="nav-item">
+                                              <a class="nav-link" data-toggle="tab" href="#stitch">Stitching</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#pack">Packing</a>
+                                              </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="#deliver">Delivering</a>
+                                             </li>
+                                            
+                                          </ul>
+                                          <div class="tab-content">
+
+                                           <!--- cutting phase -->
+                                <div class="tab-pane container active" id='cut'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>CUTTING DONE</h5>
+                                                       <form action='/job_slip/cutting' method='POST'>
+                                                           <div class='container-fluid'>
+                                                              
+                                                               
+                                                           </div>
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Quantity Cut#</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                            <input type='hidden' name='number' id='hidden_1' />
+
+                                                                           <input id='q_cut_input' name='quantity' type='number' min='0' class='form-control' required/>
+                                                                       </div>
+                                                                   </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                       </form>
+                                                     </div>
+                                       
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- cutting phase -->
+                                     <!--- stitching phase -->
+                                <div class="tab-pane container fade" id='stitch'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>STITCHING DONE</h5>
+                                                       <form action='/job_slip/stitching' method='POST'>
+                                                           <div class='container-fluid'>
+                                                              
+                                                               
+                                                           </div>
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Quantity Stitched#</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                           <input type='hidden' name='number' id='hidden_2' />
+                                                                           <input id='q_stitched_input' name='quantity' type='number' min='0' class='form-control' required/>
+                                                                       </div>
+                                                                   </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                       </form>
+                                                     </div>
+                                       
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- stitching phase -->
+                                     <!--- packed phase -->
+                                <div class="tab-pane container fade" id='pack'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>PACKING DONE</h5>
+                                                       <form action='/job_slip/packing' method='POST'>
+                                                           <div class='container-fluid'>
+                                                              
+                                                               
+                                                           </div>
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Quantity Packed#</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                            <input type='hidden' name='number' id='hidden_3' />
+
+                                                                           <input id='q_packed_input' name='quantity' type='number' min='0' class='form-control' required/>
+                                                                       </div>
+                                                                   </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                       </form>
+                                                     </div>
+                                       
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- packed phase -->
+                                     <!--- delivered phase -->
+                                <div class="tab-pane container fade" id='deliver'>
+                                        <div class="row">
+                                               <div class='col-md-12'>
+                                                      <br>
+                                                      <h5>DELIVERING DONE</h5>
+                                                       <form action='/job_slip/delivering' method='POST'>
+                                                           <div class='container-fluid'>
+                                                              
+                                                               
+                                                           </div>
+                                                           <br>
+                                                           <div class='container-fluid'>
+                                                                   <div class='row'>
+                                                                       <div class="col-md-4">
+                                                                               <label class='form-control-label'>Quantity Delivered#</label>
+       
+                                                                       </div>
+                                                                       <div class="col-md-6">
+                                                                            <input type='hidden' name='number' id='hidden_4' />
+
+                                                                           <input id='q_delivered_input' name='quantity' type='number' min='0' class='form-control' required/>
+                                                                       </div>
+                                                                   </div>
+                                                                   
+                                                               </div>
+                                                               <br>
+                                                           <div class="container-fluid">
+                                                               <div class="row">
+                                                                   <div class="col-md-4">
+                                                                       <button class="btn btn-primary">Add</button>
+                                                                   </div>
+                                                               </div>
+                                                           </div>    
+                                                       </form>
+                                                     </div>
+                                       
+                                       
+                                       </div>
+                                       </div>
+                                    <!--- delivered phase -->
+                                    </div>
+                                                                                                     
+   
+                             </div>
+                               
+                
+                                </div></div>
+                            <!--- printing -->
+                        <div class="tab-pane container fade" id='printing'>
+                            <br>
+                            <h4>Printing</h4>
+                            <br>
+                            <div class="row">
+                                    <div class='col-md-5'>
+                                            <div class='row'>
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>JOB SLIP#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <select id='js_select_1' name='number' class='form-control' required onchange="jsp_set(this)"></select>
+                                                    </div>
+                                                </div>
+                                             <br>
+                                             <div class='row'>
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>LPO REF#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <span id='jsp_l'   ></span>
+                                                    </div>
+                                                </div>
+                                                <div class='row'>
+                                                   
+                                                        <div class="col-md-4">
+                                                                <label class='form-control-label'>Product</label>
+                                        
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <span id='jsp_p'   ></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class='row'>
+                                                   
+                                                            <div class="col-md-4">
+                                                                    <label class='form-control-label'>Quantity</label>
+                                            
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <span id='jsp_q' ></span>
+                                                            </div>
+                                                        </div>  
+                                                        
+                                                        <br>
+                                             <div class='row'>
+                                                   
+                                                    <div class="col-md-4">
+                                                            <label class='form-control-label'>Total Slips Quantity#</label>
+                                    
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <input id='printing_quantity' name='number' class='form-control' required min='1'></select>
+                                                    </div>
+                                                </div>  
+                                                <br><br>
+                                                <div class='row'>
+                                                   
+                                                        <div class="col-md-4">
+                                                                <button class='btn btn-primary' onClick='generate_slips()'>Generate</button>
+                                        
+                                                        </div>
+                                                        
+                                                    </div>
+                                                       
+                                    </div>
+                                    <!----  printable area    -->
+                                    <div class="col-md-7">
+                                        <div class='container-fluid'>
+                                            <div class="row" style='min-height: 400px;overflow: scroll;max-height: 800px'>
+                                                <div class="col-md-12" id='printing_area'>
+        
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12"><button class='btn btn-primary' onclick="printDiv('printing_area')">Print</button></div>
+                                            </div>
+                                        </div>
+        
+                                    </div>
+                                    <!----  printable area    -->
+                            </div>
+                            
+
+                        </div>     
+                        <!---- printing  -->   
+                        
+
+                      </div>
+           
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+
+
+<script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
+    crossorigin="anonymous"></script>
+
+<script src="../../../js/app.js"></script>
+
+<!-- <script src="js/classie.js"></script> -->
+
+<script src="../../../dist/jspdf.min.js"></script>
+
+<script src="js/modernizr.custom.js"></script>
+<script>
+    let lpos, products,job_slips;
+    function load_lpos_styles() {
+        var xhttp3 = new XMLHttpRequest();
+        xhttp3.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                lpos = JSON.parse(this.responseText).lpos;
+                str = '<option>Select L.P.O</option>';
+                // alert(e.innerHTML.length)
+                lpos.forEach((lpo) => {
+                    str += `<option>` + lpo.ref + `</option>`;
+                });
+                document.getElementById('lpo_select').innerHTML = str;
+
+                console.log(lpos)
+            }
+        };
+        xhttp3.open("GET", "/get_lpos", true);
+        xhttp3.send();
+        ////
+
+          var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               let styles = JSON.parse(this.responseText).styles;
+                str = '<option >Select Style</option>';
+                // alert(e.innerHTML.length)
+                styles.forEach((style) => {
+                    str += `<option value='`+style.title+`'>` + style.title + `</option>`;
+                });
+                document.getElementById('style_select').innerHTML = str;
+
+            }
+        };
+        xhttp.open("GET", "/get_styles", true);
+        xhttp.send();
+        ///////////////
+        var xhttp2 = new XMLHttpRequest();
+        xhttp2.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+               let info = JSON.parse(this.responseText).info;
+                console.log(info);
+                document.getElementById('starting_number').value = (info[0].last_number)+ 1;
+
+            }
+        };
+        xhttp2.open("GET", "/get_info", true);
+        xhttp2.send();
+        ////
+        
+        var xhttp4 = new XMLHttpRequest();
+        xhttp4.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                job_slips = JSON.parse(this.responseText).job_slips;
+                str = '<option value="null">Select Job Slip #</option>';
+                // alert(e.innerHTML.length)
+                job_slips.forEach((job_slip) => {
+                    str += `<option value='`+job_slip.number+`'>`+job_slip.ref+"/js#" + job_slip.number + `</option>`;
+                });
+                document.getElementById('js_select').innerHTML = str;
+                document.getElementById('js_select_1').innerHTML = str;
+
+
+            }
+        };
+        xhttp4.open("GET", "/get_job_slips", true);
+        xhttp4.send();
+
+    }
+    function load_products() {
+        let product_select = document.getElementById('product_select');
+        let company_name = document.getElementById('company_name');
+        let lpo_select = document.getElementById('lpo_select');
+        lpos.forEach((lpo) => {
+            if (lpo.ref === lpo_select.value) {
+                products = JSON.parse(lpo.items_array);
+                let str = '<option>Select Product</option>'
+                products.forEach((product) => {
+                    str += `<option value='` + product.item + `'>` + product.item + `</option>`
+                })
+                product_select.innerHTML = str;
+                company_name.value = lpo.client
+                // alert(products);
+            }
+        })
+    }
+    function set_product() {
+        let quantity = document.getElementById('product_quantity');
+        let product_value = document.getElementById('product_select').value;
+        products.forEach((product) => {
+            if (product.item === product_value) {
+                quantity.value = product.quantity;
+            }
+        })
+    }
+    function set_js(){
+        job_slips.forEach((js)=>{
+            if(js.number===document.getElementById('js_select').value)
+            {
+                console.log(js);
+                document.getElementById('hidden_1').value = js.number;
+                document.getElementById('hidden_2').value = js.number;
+                document.getElementById('hidden_3').value = js.number;
+                document.getElementById('hidden_4').value = js.number;
+
+                document.getElementById('ref').innerHTML = js.ref;
+                document.getElementById('product').innerHTML = js.product;
+                document.getElementById('style').innerHTML = js.style;
+                document.getElementById('quantity').innerHTML = js.quantity;
+                document.getElementById('starting_number_1').innerHTML = js.starting_number;
+                document.getElementById('cutting_number').innerHTML = js.cutting;
+                document.getElementById('stitching_number').innerHTML = js.stitching;
+                document.getElementById('packing_number').innerHTML = js.packing;
+                document.getElementById('delivered_number').innerHTML = js.delivery;
+                document.getElementById("q_cut_input").setAttribute("max",(parseInt(js.quantity)-parseInt(js.cutting)));
+               document.getElementById("q_stitched_input").setAttribute("max",(parseInt(js.cutting)-parseInt(js.stitching)));
+
+              document.getElementById("q_packed_input").setAttribute("max",(parseInt(js.stitching)-parseInt(js.packing)));
+                document.getElementById("q_delivered_input").setAttribute("max",(parseInt(js.packing)-parseInt(js.delivery)));
+
+            }
+        })
+    }
+    load_lpos_styles();
+</script>
+<script> 
+        function generate_slips(){
+           let number =  document.getElementById('js_select_1').value;
+           let quantity =  document.getElementById('printing_quantity').value;
+           let printing_area = document.getElementById('printing_area');
+           job_slips.forEach((job_slip)=>{
+               if(job_slip.number===number)
+               {   
+                 if(job_slip.quantity>=quantity){
+                     let barcode_num ,qty,item,lpo,style,company,str='';
+                     item = job_slip.product;
+                    style = job_slip.style;
+                    lpo = job_slip.ref;
+                    company = job_slip.ref.split("/")[1];
+                    console.log(company);
+
+                   for(let i=1 ; i<= quantity ; i++ )
+                   {
+                    qty = i;
+
+                    str += `<div class="container">
+                <div class="container-fluid">
+                    <div class="row">
+                            <div class="col-md-12">
+                               <image id='img_`+i+`' />
+                                </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-3">Qty#</div>
+                        <div class="col-md-9">`+qty+`</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">Item</div>
+                            <div class="col-md-9">`+item+`</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">LPO#</div>
+                            <div class="col-md-9">`+lpo+`</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">Style</div>
+                            <div class="col-md-9">`+style+`</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-3">Company</div>
+                            <div class="col-md-9">`+company+`</div>
+                    </div>
+                    <div class="row">
+                            <div class="col-md-12"><span>----------------------</span></div>
+                           
+                    </div>
+                </div>
+                <br>
+            </div>
+                    `
+
+                    
+                   }
+                   printing_area.innerHTML = str;
+                   for(let i = 1 ; i<= quantity ; i++)
+                   {
+                    barcode_num = job_slip.starting_number + (i-1);
+
+                    JsBarcode("#img_"+i, barcode_num);
+
+                   }
+                   
+                
+                
+                }
+                   else{
+                       alert('quantity must be equal or less than '+job_slip.quantity);
+                   }
+                   
+               }
+           }) 
+            
+        }
+        function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+}
+function jsp_set(e){
+    let lpo = document.getElementById('jsp_l'),
+   product =   document.getElementById('jsp_p'),
+   quantity =  document.getElementById('jsp_q') ;
+//    alert(e.value);
+   job_slips.forEach((job_slip)=>{
+       if(job_slip.number === e.value){
+           lpo.innerHTML = job_slip.ref;
+           product.innerHTML = job_slip.product;
+           quantity.innerHTML = job_slip.quantity;
+       }
+   })
+
+    
+}
+
+        </script>  
+        
+
+</html>
